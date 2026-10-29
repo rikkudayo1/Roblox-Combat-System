@@ -1,0 +1,8 @@
+[package]
+name = "kurur/combat-framework"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+hitbox = "breezy1214/hitbox@5.0.1"
