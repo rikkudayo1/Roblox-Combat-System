@@ -5,7 +5,9 @@ local function CreateState()
     return {
         damage = 10,
         combo = 0,
-        stun = false,
+        lastComboAt = 0,
+        recoveryUntil = 0,
+        stunnedUntil = 0,
         cooldowns = {
             combat = 0,
         },

@@ -8,11 +8,14 @@ end
 
 function ComboHandler.AddCombo(player: Player)
     local user = GetUser(player)
-    if not user then return end
-    user.combo += 1
-    if user.combo == 6 then
-        user.combo = 1
+    if not user then return nil end
+
+    local now = os.clock()
+    if now - user.lastComboAt > 1.2 then
+        user.combo = 0
     end
+    user.combo = (user.combo % 5) + 1
+    user.lastComboAt = now
     return user.combo
 end
 
@@ -26,6 +29,7 @@ function ComboHandler.ResetCombo(player: Player)
     local user = GetUser(player)
     if not user then return end
     user.combo = 0
+    user.lastComboAt = 0
     return user.combo
 end
 
